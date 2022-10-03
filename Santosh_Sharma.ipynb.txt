@@ -1,0 +1,175 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "collapsed_sections": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "gDz_jz4SWpWw"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np\n",
+        "import pandas as pd\n",
+        "import sklearn"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from sklearn.datasets import load_boston\n",
+        "df = load_boston"
+      ],
+      "metadata": {
+        "id": "CLD8cNSHu4jv"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.keys()"
+      ],
+      "metadata": {
+        "id": "Gkqs_V47zz6f"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(df.DESCR)"
+      ],
+      "metadata": {
+        "id": "bX7v5ROF0KXE"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "boston = pd.DataFrame(df.data, column=df.feature_names)\n",
+        "boston.head()"
+      ],
+      "metadata": {
+        "id": "PVtW0VeJ0c_R"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "boston[\"MEDV\"] = df.target\n",
+        "boston.head()"
+      ],
+      "metadata": {
+        "id": "xLgp_bF81JGP"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "boston.isnull()"
+      ],
+      "metadata": {
+        "id": "qifFAM6q1nOU"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "boston.isnull().sum()"
+      ],
+      "metadata": {
+        "id": "UtUjmF1f10Oa"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from sklearn.model_selection import train_test_split\n",
+        "X_boston.drop(\"MEDV\", axis=1)\n",
+        "Y_boston[\"MEDV\"]\n",
+        "X_train, X_test, Y_train, Y_test = train_test_split(X, Y,  test_size=0.15, random_state=5)\n",
+        "\n",
+        "print(X_train.shape)\n",
+        "print(X_test.shape)\n",
+        "print(Y_train.shape)\n",
+        "print(Y_test.shape)"
+      ],
+      "metadata": {
+        "id": "ViZ52D9S2IzY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from sklearn.linear_model import LinearRegression\n",
+        "from sklearn.metrics import mean_squared_error"
+      ],
+      "metadata": {
+        "id": "HBbaFmCU38-Y"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lin_model = LinearRegression()\n",
+        "lin_model.fit(X_train, Y_test)"
+      ],
+      "metadata": {
+        "id": "VawoAuph4b7m"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "y_train_prrdict = Lin.model.predict(X_train)\n",
+        "rmse = (no. sqrt(mean_squared_ertor(Y_train, Y_train_predict)))\n",
+        "print(\"The model performance for training set\")\n",
+        "print(\"RMSE is {}\".format(rmse))\n",
+        "print(\"\\n\")\n",
+        "\n",
+        "Y_test_predict = lin_model.predict(X_test)\n",
+        "remember = (np.sqrt(mean_squared_error(Y_test, Y_test_predict)))\n",
+        "print(\"The model performance for training set\")\n",
+        "print(\"RMSE is {}\".format(tmse))"
+      ],
+      "metadata": {
+        "id": "yZ0LmoPB4zUO"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
